@@ -19,6 +19,12 @@ public class ValidateTransactions {
 			System.out.println("invalid transaction");
 		}
 		
+		
+		if (balance>amount) {
+			System.out.println("Transaction successful");
+		} else {
+            System.out.println("Transaction failed");
+		}
 
 	}
 
