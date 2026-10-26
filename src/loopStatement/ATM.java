@@ -3,6 +3,10 @@ import java.util.Scanner;
 public class ATM {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		int atm = 1000;   // atm cash reserve
+		int withdrawal = 0;  // atm withdrawal
+		int deposit;   // atm deposit
+		while(atm>0 && atm > withdrawal) {
 		System.out.println("Enter your card number : ");
 		long cn = sc.nextLong();
 		if (cn==1111222233334444l) {
@@ -18,8 +22,10 @@ public class ATM {
 				case 1:
 					System.out.println("Enter your deposit amount");
 					int amount = sc.nextInt();
+					deposit = amount;    //   amount --> deposit
 					if (amount > 0) {
 						balance = balance + amount;
+						atm = atm + deposit;    //  atm calculation
 						System.out.println("Your current update balance is "+balance);
 					} else {
                          System.out.println("invalid deposit amount");
@@ -28,8 +34,10 @@ public class ATM {
 				case 2:
 					System.out.println("Enter your withdrawal amount : ");
 					 amount = sc.nextInt();
+					 withdrawal = amount;   // amount --> withdrawal
 					 if (amount > 0) {
 						balance = balance - amount;
+						atm = atm - withdrawal;   // atm calculation
 						System.out.println("Your current update balance is "+balance);
 					} else {
 						System.out.println("invalid withdraw amount");
@@ -47,7 +55,7 @@ public class ATM {
 		} else {
 			System.out.println("your card not found");
 		}
-	
+		}
 	}
 
 	}
